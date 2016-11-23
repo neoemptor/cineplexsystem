@@ -1,0 +1,42 @@
+﻿<%--
+Default skin template. The following skins are provided as examples only.
+
+1. Named control skin. The SkinId should be uniquely defined because
+   duplicate SkinId's per control type are not allowed in the same theme.
+
+<asp:GridView runat="server" SkinId="gridviewSkin" BackColor="White" >
+   <AlternatingRowStyle BackColor="Blue" />
+</asp:GridView>
+
+2. Default skin. The SkinId is not defined. Only one default 
+   control skin per control type is allowed in the same theme.
+
+<asp:Image runat="server" ImageUrl="~/images/image1.jpg" />
+--%>
+
+<asp:GridView runat="server" CssClass="Content" />
+<asp:Menu SkinID="MainMenu" runat="server" CssClass="mnuNavigation" />
+<asp:Menu SkinID="mnuLogin" runat="server" CssClass="mnuNavigation" />
+<asp:Menu SkinID="mnuAdmin" runat="server" CssClass="mnuNavigation" />
+
+<asp:DropDownList SkinID="sknSmallWidthDDL" runat="server" CssClass="SmallWidthDDL" />
+<asp:DropDownList SkinID="sknMediumWidthDDL" runat="server" CssClass="MediumWidthDDL" />
+<asp:DropDownList SkinID="sknLargeWidthDDL" runat="server" CssClass="LargeWidthDDL" />
+
+<asp:DropDownList SkinID="sknStateWidthDDL" runat="server" CssClass="StateWidthDDL" />
+<asp:DropDownList SkinID="sknExpiryMonthWidthDDL" runat="server" CssClass="ExpiryMonthWidthDDL" />
+<asp:DropDownList SkinID="sknExpiryYearWidthDDL" runat="server" CssClass="ExpiryYearWidthDDL" />
+
+<asp:TextBox SkinID="sknSmallWidthTextBox" runat="server" CssClass="SmallWidthTextBox" />
+<asp:TextBox SkinID="sknMediumWidthTextBox" runat="server" CssClass="MediumWidthTextBox" />
+<asp:TextBox SkinID="sknLargeWidthTextBox" runat="server" CssClass="LargeWidthTextBox" />
+
+<asp:Label SkinID="sknSmallWidthLabel" runat="server" CssClass="SmallWidthLabel" />
+<asp:Label SkinID="sknMediumWidthLabel" runat="server" CssClass="MediumWidthLabel" />
+<asp:Label SkinID="sknLargeWidthLabel" runat="server" CssClass="LargeWidthLabel" />
+
+<asp:Button runat="server" CssClass="Button" />
+<asp:Login runat="server"  CssClass="Content" />
+<asp:ImageButton runat="server" SkinID="sknShoppingCart" CssClass="lnkShoppingCart" />
+
+<asp:Label SkinID="sknQuantity" runat="server" CssClass="Quality" />

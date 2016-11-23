@@ -1,0 +1,8 @@
+﻿@charset 'UTF-8';
+
+/* Boostrap */
+/*@import url('~/Content/bootstrap.css');*/
+/* Layout  */
+@import url('Layout.css');
+/* Format */
+@import url('Format.css');

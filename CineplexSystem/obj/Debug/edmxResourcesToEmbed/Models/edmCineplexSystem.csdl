@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CPIStudent_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="C__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Customer30022962">
+    <Key>
+      <PropertyRef Name="CustomerId" />
+    </Key>
+    <Property Name="CustomerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CardNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ExpDate" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Orders30022962" Relationship="Self.FK_Orders_Customer30022962" FromRole="Customer30022962" ToRole="Orders30022962" />
+  </EntityType>
+  <EntityType Name="MovieOrders30022962">
+    <Key>
+      <PropertyRef Name="OrderId" />
+      <PropertyRef Name="MovieId" />
+    </Key>
+    <Property Name="OrderId" Type="Int32" Nullable="false" />
+    <Property Name="MovieId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Orders30022962" Relationship="Self.FK_Movie_Orders30022962" FromRole="MovieOrders30022962" ToRole="Orders30022962" />
+  </EntityType>
+  <EntityType Name="Orders30022962">
+    <Key>
+      <PropertyRef Name="OrderId" />
+    </Key>
+    <Property Name="OrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CustomerId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Customer30022962" Relationship="Self.FK_Orders_Customer30022962" FromRole="Orders30022962" ToRole="Customer30022962" />
+    <NavigationProperty Name="MovieOrders30022962" Relationship="Self.FK_Movie_Orders30022962" FromRole="Orders30022962" ToRole="MovieOrders30022962" />
+  </EntityType>
+  <Association Name="FK_Orders_Customer30022962">
+    <End Role="Customer30022962" Type="Self.Customer30022962" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Orders30022962" Type="Self.Orders30022962" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer30022962">
+        <PropertyRef Name="CustomerId" />
+      </Principal>
+      <Dependent Role="Orders30022962">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Movie_Orders30022962">
+    <End Role="Orders30022962" Type="Self.Orders30022962" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MovieOrders30022962" Type="Self.MovieOrders30022962" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders30022962">
+        <PropertyRef Name="OrderId" />
+      </Principal>
+      <Dependent Role="MovieOrders30022962">
+        <PropertyRef Name="OrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CPIStudent_dbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+    <EntitySet Name="Customer30022962" EntityType="Self.Customer30022962" />
+    <EntitySet Name="MovieOrders30022962" EntityType="Self.MovieOrders30022962" />
+    <EntitySet Name="Orders30022962" EntityType="Self.Orders30022962" />
+    <AssociationSet Name="FK_Orders_Customer30022962" Association="Self.FK_Orders_Customer30022962">
+      <End Role="Customer30022962" EntitySet="Customer30022962" />
+      <End Role="Orders30022962" EntitySet="Orders30022962" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Movie_Orders30022962" Association="Self.FK_Movie_Orders30022962">
+      <End Role="Orders30022962" EntitySet="Orders30022962" />
+      <End Role="MovieOrders30022962" EntitySet="MovieOrders30022962" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

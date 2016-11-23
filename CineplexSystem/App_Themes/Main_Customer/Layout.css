@@ -1,0 +1,244 @@
+﻿@charset "UTF-8";
+
+/* Layout  */
+/** {
+    border: 1px dashed red;
+} */
+
+#Footer, #Menu, .Menu, nav, #Footer div, .Content div {
+    position: relative;
+}
+
+#Logo img {
+    display: inline;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 30px;
+    height: 25px;
+}
+
+body, html {
+    display: block;
+    margin: 0;
+    padding: 0;
+    height:500px;
+}
+
+.Content form input, .Content form select, body, #Menu, .Menu, nav, html {
+    display: block;
+    width: 100%;
+}
+
+
+
+#Menu, .Menu {
+    height: 50px;
+    right: 200px;
+    left: 40px;
+}
+
+    #Menu ul li, .Menu ul li {
+        display: inline;
+        padding: 0px 20px 0px 20px;
+        width: auto;
+    }
+
+    #Menu a, .Menu a {
+        height: 100%;
+        padding: 20px 20px 20px 20px;
+        width: auto;
+    }
+
+    #Menu ul, .Menu ul {
+        height: 40px;
+        padding: 20px;
+        margin: 0;
+    }
+
+nav {
+    height: 70px;
+    top: 0;
+    left: 0;
+    right: 0;
+    overflow: no-display;
+}
+
+
+
+hr {
+    padding: 0 10px 0 10px;
+    top: -5px;
+    margin: 0;
+    width: 98px;
+    text-align: center;
+}
+
+p {
+    padding: 0 20px 20px 20px;
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    padding: 20px 20px 5px 20px;
+    margin: 0;
+}
+
+.ImageBlock {
+    position: center;
+    display: flex;
+}
+
+    .ImageBlock img {
+        display: flex;
+        width: auto;
+        height: 150px;
+        border: 1px solid orange;
+        padding: 0;
+        margin: 0;
+    }
+
+#CopyrightNotice {
+    position: relative;
+    top: 2em;
+    padding-right: 2em;
+}
+
+.Content button, .Button {
+    float: right;
+    width: 7em;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-size: .75em;
+}
+
+.Content form, .Content table {
+    padding: 20px;
+    margin-top: 20px;
+    width: auto;
+    margin-right: 40px;
+}
+
+.LoginFormContainer {
+    min-width: 400px;
+    max-width: 400px;
+}
+
+.Content table {
+    display: block;
+    height: auto;
+    width: auto;
+    vertical-align: text-top;
+    padding: 0;
+    margin: 0;
+}
+
+
+
+.Content > div:nth-child(1) {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 5%;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.Content > div:nth-child(2) {
+    flex-grow: 2;
+    flex-shrink: 1;
+    flex-basis: 95%;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.Content > div:nth-child(3) {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.mnuNavigation {
+    position: relative;
+    top: -25px;
+    left: 2em;
+    padding-left: 2em;
+    padding-right: 1em;
+}
+
+.Content {
+    padding-top: 25px;
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 25px;
+    height: 800px;
+    
+}
+
+    .Content td {
+        padding-left: 1em;
+        padding-right: 1em;
+        max-height: 1em;
+    }
+
+.RightMenuBox {
+    position: relative;
+    top: -55px;
+    right: 50px;
+    float: right;
+    font-weight: 600;
+}
+
+.RightMenuText {
+    position: relative;
+    top:6px;
+}
+
+
+.LeftColumn, .RightColumn {
+    width: auto;
+    max-width: 200px;
+}
+
+.SmallWidthTextBox, .SmallWidthLabel, .SmallWidthDDL {
+    width: 50px;
+}
+
+.MediumWidthTextBox, .MediumWidthLabel, .MediumWidthDDL {
+    width: 100px;
+}
+
+.LargeWidthTextBox, .LargeWidthLabel, .LargeWidthDDL {
+    width: 200px;
+}
+
+.StateWidthDDL, .ExpiryMonthWidthDDL, .ExpiryYearWidthDDL {
+    width: 120px;
+}
+
+#CCardSecurityImage {
+    position: relative;
+    top: .5em;
+    width: 2.5em;
+    height: 1.5em;
+}
+
+.PurchaseSuccessBlock {
+    text-align: center;
+}
+
+.Quantity {
+    position: relative;
+    top: -8px;
+}
+
+.FooterContainer {
+    position:fixed;
+    bottom: 0;
+    height: 5em;
+    text-align: right;
+    width:100%;
+}

@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="edmCineplexSystem-Web.config Connection String" description="edmCineplexSystem Connection String used in web.config by the application to access the database." defaultValue="data source=tcp:studentappserver30022962.database.windows.net,1433;initial catalog=StudentAppDB30022962;persist security info=False;user id=login30022962;password=Darshabai62#;multipleactiveresultsets=False;connect timeout=30;encrypt=True;trustservercertificate=False;application name=EntityFramework" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\darren\\Dropbox\\CPI_Web_Dev_Course\\Developing\ Windows\ Azure\ and\ Web\ Services\\CineplexSystem\\CineplexSystem\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='edmCineplexSystem']/@connectionString" />
+  </parameter>
+</parameters>

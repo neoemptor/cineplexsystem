@@ -1,0 +1,52 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="CineplexSystem.Master_Pages.Main" %>
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <script src="../Scripts/jquery-2.2.3.js"></script>
+</head>
+<body>
+    <%--should be designed in an attractive manner--%>
+    <%--the users can access by means of tabs or site map links--%>
+    <form id="frmMain" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server" CompositeScript-Path="~/Scripts/CineplexSystem.js">
+            <Scripts>
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Path="~/Scripts/CineplexSystem.js" />
+            </Scripts>
+        </asp:ScriptManager>
+        <nav>
+            <div id="Logo">
+                <img src="/Images/logo.png" alt="Company Logo" />
+            </div>
+            <asp:SiteMapDataSource ID="smdsNavigation" runat="server" />
+            <asp:Menu ID="mnuNavigation" runat="server" MaximumDynamicDisplayLevels="0" Orientation="Horizontal" StaticDisplayLevels="2" SkinID="MainMenu" RenderingMode="List" StaticMenuStyle-HorizontalPadding="1em" StaticMenuItemStyle-HorizontalPadding="1em" StaticMenuItemStyle-ItemSpacing="1em" StaticSelectedStyle-HorizontalPadding="1em" StaticSelectedStyle-ItemSpacing="1em" DynamicMenuItemStyle-HorizontalPadding="1em" DynamicMenuItemStyle-ItemSpacing="1em" DynamicMenuStyle-HorizontalPadding="1em" DynamicSelectedStyle-HorizontalPadding="1em" DynamicSelectedStyle-ItemSpacing="1em" DataSourceID="smdsNavigation">
+            </asp:Menu>
+
+
+            <span class="RightMenuBox">
+                <asp:ImageButton PostBackUrl="/ShoppingCartPage.aspx" runat="server" ID="lnkShoppingCart" SkinID="sknShoppingCart" ImageUrl="~/Images/shoppingcart.png" ToolTip="Shopping Cart" AlternateText="Shopping Cart" />
+                <span class="Quantity">&nbsp;&nbsp;
+                    <asp:Label ID="lblQuantity" SkinID="sknQuantity" runat="server" Text="0" ViewStateMode="Enabled" ToolTip="Your Cart is Empty"></asp:Label>
+                    &nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;</span>
+            </span>
+        </nav>
+        <div class="Content">
+            <div></div>
+            <div>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <div>
+            </div>
+        </div>
+        <div class="FooterContainer"><span id="CopyrightNotice">Copyright Darren Bailey 2016&nbsp;&copy;</span></div>
+    </form>
+</body>
+</html>

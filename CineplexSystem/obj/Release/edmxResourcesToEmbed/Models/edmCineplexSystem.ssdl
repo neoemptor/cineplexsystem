@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CPIStudent_dbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Customer30022962">
+    <Key>
+      <PropertyRef Name="CustomerId" />
+    </Key>
+    <Property Name="CustomerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="CType" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CardNo" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ExpDate" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MovieOrders30022962">
+    <Key>
+      <PropertyRef Name="OrderId" />
+      <PropertyRef Name="MovieId" />
+    </Key>
+    <Property Name="OrderId" Type="int" Nullable="false" />
+    <Property Name="MovieId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Orders30022962">
+    <Key>
+      <PropertyRef Name="OrderId" />
+    </Key>
+    <Property Name="OrderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date" Type="date" Nullable="false" />
+    <Property Name="CustomerId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Movie_Orders30022962">
+    <End Role="Orders30022962" Type="Self.Orders30022962" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MovieOrders30022962" Type="Self.MovieOrders30022962" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders30022962">
+        <PropertyRef Name="OrderId" />
+      </Principal>
+      <Dependent Role="MovieOrders30022962">
+        <PropertyRef Name="OrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_Customer30022962">
+    <End Role="Customer30022962" Type="Self.Customer30022962" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Orders30022962" Type="Self.Orders30022962" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer30022962">
+        <PropertyRef Name="CustomerId" />
+      </Principal>
+      <Dependent Role="Orders30022962">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CPIStudent_dbModelStoreContainer">
+    <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customer30022962" EntityType="Self.Customer30022962" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MovieOrders30022962" EntityType="Self.MovieOrders30022962" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Orders30022962" EntityType="Self.Orders30022962" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Movie_Orders30022962" Association="Self.FK_Movie_Orders30022962">
+      <End Role="Orders30022962" EntitySet="Orders30022962" />
+      <End Role="MovieOrders30022962" EntitySet="MovieOrders30022962" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_Customer30022962" Association="Self.FK_Orders_Customer30022962">
+      <End Role="Customer30022962" EntitySet="Customer30022962" />
+      <End Role="Orders30022962" EntitySet="Orders30022962" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0">
+  <siteMapNode url="~/" title="Home" description="Go to the homepage">
+    <siteMapNode url="~/Movies" title="Movies"
+    description="Movies available" />
+    <siteMapNode url="~/ShoppingCartPage" title="View Shopping Cart"
+    description="Movies available" />
+    <siteMapNode url="~/AboutUs" title="About Us"
+    description="About the company" />
+    <siteMapNode url="~/ContactUs" title="Contact Us"
+    description="Contact information for the company" />
+  </siteMapNode>
+</siteMap>
